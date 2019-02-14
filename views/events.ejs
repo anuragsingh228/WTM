@@ -92,28 +92,16 @@
         <div class="container">
 
             <!--Section: Jumbotron-->
-            <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg);">
+            <!-- <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg); ">
 
-                <!-- Content -->
+                
                 <div class="card-body text-white text-center py-5 px-5 my-5">
 
                     <h1 class="mb-4">
-                        <strong>Some Random Heading</strong>
+                        <strong>EVENTS</strong>
                     </h1>
-                    <p>
-                        <strong>Lorem ipsum dolor sit amet.</strong>
-                    </p>
-                    <p class="mb-4">
-                        <strong>Lorem ipsum dolor sit amet consectetur adipisicing elit. Velit nulla quod enim minima
-                            vitae dolore cumque laborum hic, fugit ex animi odio consectetur. Corporis, dolore?</strong>
-                    </p>
-                    <a target="_blank" href="#" class="btn btn-outline-white btn-lg">Join
-                        Us
-                        <i class="fas fa-graduation-cap ml-2"></i>
-                    </a>
-
                 </div>
-                <!-- Content -->
+                -->
             </section>
             <!--Section: Jumbotron-->
 
@@ -124,7 +112,8 @@
 
                 <!--Grid row-->
                 <div class="row mb-4 wow fadeIn">
-
+                <% events.forEach((event) => { %>
+                    
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6 mb-4">
 
@@ -133,7 +122,7 @@
 
                             <!--Card image-->
                             <div class="view overlay">
-                                <img src="image/texture-wallpaper-13.jpg" class="card-img-top" alt="">
+                                <img src="<%= event.image %>" class="card-img-top" alt="">
                                 <a href="#" target="_blank">
                                     <div class="mask rgba-white-slight"></div>
                                 </a>
@@ -142,11 +131,10 @@
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
-                                <h4 class="card-title">Random Heading</h4>
+                                <h4 class="card-title"><%= event.title %></h4>
+                                <span><%= event.date %></span>
                                 <!--Text-->
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Cupiditate odit similique distinctio, obcaecati quod odio mollitia aperiam dolor,
-                                    alias numquam non aut, accusantium unde accusamus.</p>
+                                <p class="card-text"><%= event.description %></p>
                                 <a href="#" target="_blank" class="btn btn-primary btn-md">Details
                                     <i class="fas fa-play ml-2"></i>
                                 </a>
@@ -157,103 +145,10 @@
 
                     </div>
                     <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
+                <% }) %>
 
-                        <!--Card-->
-                        <div class="card">
-
-                            <!--Card image-->
-                            <div class="view overlay">
-                                <img src="image/texture-wallpaper-13.jpg" class="card-img-top" alt="">
-                                <a href="#" target="_blank">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title">Random Heading</h4>
-                                <!--Text-->
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Cupiditate odit similique distinctio, obcaecati quod odio mollitia aperiam dolor,
-                                    alias numquam non aut, accusantium unde accusamus.</p>
-                                <a href="#" target="_blank" class="btn btn-primary btn-md">Details
-                                    <i class="fas fa-play ml-2"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--Grid column-->
-
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-
-                        <!--Card-->
-                        <div class="card">
-
-                            <!--Card image-->
-                            <div class="view overlay">
-                                <img src="image/texture-wallpaper-13.jpg" class="card-img-top" alt="">
-                                <a href="#" target="_blank">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title">Random Heading</h4>
-                                <!--Text-->
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Cupiditate odit similique distinctio, obcaecati quod odio mollitia aperiam dolor,
-                                    alias numquam non aut, accusantium unde accusamus.</p>
-                                <a href="#" target="_blank" class="btn btn-primary btn-md">Details
-                                    <i class="fas fa-play ml-2"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--Grid column-->
-                    <!--Grid column-->
-                    <div class="col-lg-4 col-md-6 mb-4">
-
-                        <!--Card-->
-                        <div class="card">
-
-                            <!--Card image-->
-                            <div class="view overlay">
-                                <img src="image/texture-wallpaper-13.jpg" class="card-img-top" alt="">
-                                <a href="#" target="_blank">
-                                    <div class="mask rgba-white-slight"></div>
-                                </a>
-                            </div>
-
-                            <!--Card content-->
-                            <div class="card-body">
-                                <!--Title-->
-                                <h4 class="card-title">Random Heading</h4>
-                                <!--Text-->
-                                <p class="card-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit.
-                                    Cupiditate odit similique distinctio, obcaecati quod odio mollitia aperiam dolor,
-                                    alias numquam non aut, accusantium unde accusamus.</p>
-                                <a href="#" target="_blank" class="btn btn-primary btn-md">Details
-                                    <i class="fas fa-play ml-2"></i>
-                                </a>
-                            </div>
-
-                        </div>
-                        <!--/.Card-->
-
-                    </div>
-                    <!--Grid column-->
+                    
+                    
 
                 </div>
                 <!--Grid row-->

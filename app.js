@@ -42,7 +42,9 @@ app.get('/', (req, res) => {
 	res.render('home');
 });
 app.get('/events', (req, res) => {
-	res.render('events');
+	Event.find({}, (err, events) => {
+		res.render('events', { events })
+	});
 });
 
 app.get('/dashboard', isLoggedIn, (req, res) => {
