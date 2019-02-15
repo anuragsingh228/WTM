@@ -41,6 +41,9 @@ passport.deserializeUser(User.deserializeUser());
 app.get('/', (req, res) => {
 	res.render('home');
 });
+app.get('/indev', (req, res) => {
+	res.render('indev');
+});
 app.get('/events', (req, res) => {
 	Event.find({}, (err, events) => {
 		res.render('events', { events })
