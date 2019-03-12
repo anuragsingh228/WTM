@@ -92,16 +92,16 @@
         <div class="container">
 
             <!--Section: Jumbotron-->
-            <!-- <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg); ">
+            <section class="card wow fadeIn" style="background-image: url(https://mdbootstrap.com/img/Photos/Others/gradient1.jpg); ">
 
-                
+
                 <div class="card-body text-white text-center py-5 px-5 my-5">
 
                     <h1 class="mb-4">
                         <strong>EVENTS</strong>
                     </h1>
                 </div>
-                -->
+
             </section>
             <!--Section: Jumbotron-->
 
@@ -112,8 +112,8 @@
 
                 <!--Grid row-->
                 <div class="row mb-4 wow fadeIn">
-                <% events.forEach((event) => { %>
-                    
+                    <% events.forEach((event) => { %>
+
                     <!--Grid column-->
                     <div class="col-lg-4 col-md-6 mb-4">
 
@@ -131,10 +131,15 @@
                             <!--Card content-->
                             <div class="card-body">
                                 <!--Title-->
-                                <h4 class="card-title"><%= event.title %></h4>
-                                <span><%= event.date %></span>
+                                <h4 class="card-title">
+                                    <%= event.title %>
+                                </h4>
+                                <span>
+                                    <%= event.date %></span>
                                 <!--Text-->
-                                <p class="card-text"><%= event.description %></p>
+                                <p class="card-text">
+                                    <%= event.description %>
+                                </p>
                                 <a href="#" target="_blank" class="btn btn-primary btn-md">Details
                                     <i class="fas fa-play ml-2"></i>
                                 </a>
@@ -145,10 +150,10 @@
 
                     </div>
                     <!--Grid column-->
-                <% }) %>
+                    <% }) %>
 
-                    
-                    
+
+
 
                 </div>
                 <!--Grid row-->
