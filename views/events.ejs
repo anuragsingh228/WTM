@@ -132,10 +132,9 @@
                             <div class="card-body">
                                 <!--Title-->
                                 <h4 class="card-title"><%= event.title %></h4>
-                                <span><%= event.date %></span>
+                                <span><%= moment(event.date).format("dddd, MMMM Do YYYY") %></span>
                                 <!--Text-->
-                                <p class="card-text"><%= event.description %></p>
-                                <a href="#" target="_blank" class="btn btn-primary btn-md">Details
+                                <a href="/events/<%=event._id%>" target="_blank" class="btn btn-primary btn-md">Details
                                     <i class="fas fa-play ml-2"></i>
                                 </a>
                             </div>
@@ -275,6 +274,12 @@
         // Animations initialization
         new WOW().init();
 
+    </script>
+    <script type="text/javascript">
+        $('div').each(function () {
+            var i = $(this).prop('_id');
+            console.log(i);
+        });
     </script>
 </body>
 

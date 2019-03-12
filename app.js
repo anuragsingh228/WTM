@@ -4,6 +4,7 @@ var express = require('express'),
 	bodyParser = require('body-parser'),
 	LocalStrategy = require('passport-local'),
 	path = require('path'),
+	moment = require('moment'),
 	passportLocalMongoose = require('passport-local-mongoose'),
 	User = require('./models/user'),
 	Event = require('./models/event');
@@ -41,18 +42,20 @@ passport.deserializeUser(User.deserializeUser());
 app.get('/', (req, res) => {
 	res.render('home');
 });
+
 app.get('/indev', (req, res) => {
-	res.render('indev');
+	res.render('event');
 });
+
 app.get('/events', (req, res) => {
 	Event.find({}, (err, events) => {
-		res.render('events', { events })
+		res.render('events', { events, moment})
 	});
 });
 
 app.get('/dashboard', isLoggedIn, (req, res) => {
 	Event.find({}, (err, events) => {
-		res.render('dashboard', { events })
+		res.render('dashboard', { events, moment })
 	});
 });
 
@@ -60,11 +63,25 @@ app.get('/addEvent', isLoggedIn, (req, res) => {
 	res.render('addEvent');
 });
 
+app.get('/events/update/:id', isLoggedIn, (req, res) => {
+	var id = req.params.id;
+	Event.findOne({_id: id}, (err, event) => {
+		res.render('updateEvent', { event, moment })
+	});
+});
+
+app.get('/events/:id', (req, res) => {
+	var id = req.params.id;
+	Event.findOne({_id: id}, (err, event) => {
+		res.render('event', { event, moment })
+	});
+});
+
 app.post('/addEvent', isLoggedIn, (req, res) => {
 	var event = new Event({
 		title: req.body.title,
 		image: req.body.image,
-		date: req.body.date,
+		date: moment(req.body.date),
 		from: req.body.from,
 		to: req.body.to,
 		description: req.body.description,
@@ -78,13 +95,13 @@ app.post('/addEvent', isLoggedIn, (req, res) => {
 	});
 });
 
-app.get('/events/:title', isLoggedIn, (req, res) => {
-	var title = req.params.title;
-	// if(!ObjectID.isValid(id)) {
-	// 	return res.status(404).send();
-	// }
+app.get('/events/:id', (req, res) => {
+	var id = req.params.id;
+	if(!ObjectID.isValid(id)) {
+		return res.status(404).send();
+	}
 	Event.findOne({
-		title: title
+		_id: id
 	}).then((event) => {
 		if (!event) {
 			return res.status(404).send();
@@ -95,22 +112,53 @@ app.get('/events/:title', isLoggedIn, (req, res) => {
 	});
 });
 
-app.get('/events/delete/:title', isLoggedIn, (req, res) => {
-	var title = req.params.title;
-	// if(!ObjectID.isValid(id)) {
-	// 	return res.status(404).send();
-	// }
-	Event.findOneAndRemove({
-		title: title
+
+
+app.get('/events/delete/:id', isLoggedIn, (req, res) => {
+	var id = req.params.id;
+	if(!ObjectID.isValid(id)) {
+		return res.status(404).send();
+	}
+	Event.findOneAndDelete({
+		_id:id
 	}).then((event) => {
 		if (!event) {
 			return res.status(404).send();
 		}
-		res.send({ event })
+		res.redirect("/dashboard");
 	}).catch((e) => {
 		res.status(400).send();
 	});
 });
+
+app.post('/events/update/:id', isLoggedIn, (req, res) => {
+	var id = req.params.id;
+	if(!ObjectID.isValid(id)) {
+		return res.status(404).send();
+	}
+	Event.findOneAndUpdate({
+		_id:id
+	}).then((event) => {
+		if (!event) {
+			return res.status(404).send();
+		}
+		event.title = req.body.title;
+		event.date = req.body.date;
+		event.date = req.body.date;
+		event.from = req.body.from;
+		event.to = req.body.to;
+		event.venue = req.body.venue;
+		event.image = req.body.image;
+		event.description = req.body.description;
+
+		event.save();
+		res.redirect("/dashboard");
+	}).catch((e) => {
+		res.status(400).send();
+	});
+});
+
+
 
 // Auth Routes
 // Signup routes

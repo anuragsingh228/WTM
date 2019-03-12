@@ -40,15 +40,15 @@
         <% events.forEach((event) => { %>
               <tr>
                 <td class="pt-3-half" contenteditable="false"><%= event.title %></td>
-                <td class="pt-3-half" contenteditable="false"><%= event.date %></td>
+                <td class="pt-3-half" contenteditable="false"><%= moment(event.date).format("dddd, MMMM Do YYYY")%></td>
                 <td class="pt-3-half" contenteditable="false"><%= event.from %></td>
                 <td class="pt-3-half" contenteditable="false"><%= event.to %></td>
                 <td class="pt-3-half" contenteditable="false"><%= event.venue %></td>
                 <td class="pt-3-half">
-                  <span class="table-up"><a href="#!" class="indigo-text"><i class="far fa-edit" aria-hidden="true"></i></a></span>
+                  <span class="table-up"><a href="/events/update/<%=event._id%>" class="indigo-text"><i class="far fa-edit" aria-hidden="true"></i></a></span>
                 </td>
                 <td>
-                  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0">Remove</button></span>
+                  <span class="table-remove"><button type="button" class="btn btn-danger btn-rounded btn-sm my-0"><a href="/events/delete/<%=event._id%>">Remove</a></button></span>
                 </td>
               </tr>
         <% }) %>

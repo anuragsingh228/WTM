@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var eventSchema = new mongoose.Schema({
 	title: {type: String, default: ''},
 	image: {type: String, default: ''},
-	date: {type: Date, default: Date.now},
+	date: {type: Date},
 	from: {type: String, default: ''},
 	to: {type: String, default: ''},
 	description: {type: String, default: ''},
