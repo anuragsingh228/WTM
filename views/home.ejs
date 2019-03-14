@@ -16,6 +16,10 @@
   <!-- Your custom styles (optional) -->
   <link href="/css/style.css" rel="stylesheet">
   <style type="text/css">
+    html {
+      scroll-behavior: smooth;
+    }
+
     html,
     body,
     header,
@@ -85,9 +89,10 @@
         </button>
 
         <!-- Links -->
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse " id="navbarSupportedContent">
 
           <!-- Left -->
+
           <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
               <a class="nav-link" href="#">Home
@@ -98,12 +103,13 @@
               <a class="nav-link" href="#about">About </a>
             </li>
             <li class="nav-item">
+              <a class="nav-link" href="#heighlights">Highlights</a>
+            </li>
+            <li class="nav-item">
               <a class="nav-link" href="#events">Events</a>
             </li>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#heighlights">Highlights</a>
-            </li>
+
           </ul>
 
           <!-- Right -->
@@ -164,7 +170,7 @@
                 </h1>
 
 
-                <a target="_blank" href="#" class="btn btn-outline-white btn-lg">Future
+                <a href="#events" class="btn btn-outline-white btn-lg">Future
                   Events
                   <i class="fas fa-calendar ml-2"></i>
                 </a>
@@ -198,7 +204,7 @@
 
 
 
-                <a target="_blank" href="#" class="btn btn-outline-white btn-lg">Future
+                <a href="#events" class="btn btn-outline-white btn-lg">Future
                   Events
                   <i class="fas fa-calendar ml-2"></i>
                 </a>
@@ -231,7 +237,7 @@
                 </h1>
 
 
-                <a target="_blank" href="#" class="btn btn-outline-white btn-lg">Future
+                <a href="#events" class="btn btn-outline-white btn-lg">Future
                   Events
                   <i class="fas fa-calendar ml-2"></i>
                 </a>
@@ -265,29 +271,51 @@
   </header>
 
   <!--Main layout-->
-  <main class="mb-5">
+  <main class="mb-5" id="about">
     <div class="container">
 
       <!--Section: Main info-->
-      <section class="mt-5 wow fadeIn" id="about">
+      <section class="mt-5 wow fadeIn">
 
-        <div class="section text-center">
-          <div class="row">
-            <div class="col-md-8 ml-auto mr-auto">
-              <h2 class="title">Women Techmakers</h2>
-              <h5 class="description">Women Techmakers is a program created by Google to celebrate International Women's
-                Day and to highlight the talent of women in technology. The
-                main focus of this community-building initiative is to promote talented and passionate women, increase
-                the visibility of the Kolkata technology community and empower women in technology.</h5>
+        <!--Grid row-->
+        <div class="row">
 
-              <p>&nbsp;</p>
+          <!--Grid column-->
+          <div class="col-md-6 mb-4">
 
+            <img src="/image/slide1.jpg" class="img-fluid z-depth-1-half" alt="">
 
-            </div>
           </div>
+          <!--Grid column-->
+
+          <!--Grid column-->
+          <div class="col-md-6 mb-4 mt-5 text-center">
+
+            <!-- Main heading -->
+            <h3 class="title">Women Techmakers</h3>
+            <p>Women Techmakers is a program created by Google to celebrate International Women's
+              Day and to highlight the talent of women in technology. The
+              main focus of this community-building initiative is to promote talented and passionate women, increase
+              the visibility of the Kolkata technology community and empower women in technology</p>
+
+
+
+            <!-- Main heading -->
+
+
+
+
+
+          </div>
+          <!--Grid column-->
+
         </div>
+        <!--Grid row-->
 
       </section>
+      <!--Section: Main info-->
+
+      <hr class="my-5">
       <!--Section: Main info-->
 
 
@@ -361,11 +389,13 @@
 
         </div>
         <!--/Grid row-->
+        <hr class="my-5">
+
     </div>
     </section>
     <!--Section: Main features & Quick Start-->
 
-    <hr class="my-5">
+
 
     <!--Section: More-->
     <section id="heighlights">
@@ -626,8 +656,8 @@
           <!-- Content -->
           <h6 class="text-uppercase font-weight-bold">WTMKolkata</h6>
           <hr class="teal accent-3 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic consequuntur, voluptatem ratione quasi culpa
-            excepturi?.</p>
+          <p>Women Techmakers is a program created by Google to celebrate International Women's
+            Day and to highlight the talent of women in technology.</p>
 
         </div>
         <!-- Grid column -->
@@ -698,6 +728,19 @@
     // Animations initialization
     new WOW().init();
 
+  </script>
+  <script>
+    // Add active class to the current button (highlight it)
+    var header = document.getElementById("navbarSupportedContent");
+    var btns = header.getElementsByClassName("nav-item");
+    console.log(btns);
+    for (var i = 0; i < 4; i++) {
+      btns[i].addEventListener("click", function () {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+      });
+    }
   </script>
 </body>
 
