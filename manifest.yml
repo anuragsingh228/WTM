@@ -1,0 +1,5 @@
+---
+applications:
+ - name: wtmkolkata
+   host: wtmkolkata
+   memory: 1024M
