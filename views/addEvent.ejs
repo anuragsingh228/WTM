@@ -1,127 +1,161 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <!-- bootstrap -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
-        crossorigin="anonymous">
-    <!-- font-awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr"
-        crossorigin="anonymous">
-    <!-- jquery -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <!-- datetimepicker -->
-    <link rel="stylesheet" href="/css/jquery.datetimepicker.min.css">
-    
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Material Design Bootstrap</title>
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+    <!-- Bootstrap core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Material Design Bootstrap -->
+    <link href="css/mdb.min.css" rel="stylesheet">
+    <!-- Your custom styles (optional) -->
+    <link href="css/style.min.css" rel="stylesheet">
     <style>
-        body {
-            margin: 20px;
-        }
-        form {
-            width: 60%;
-            margin: 0 auto;
-        }
-        .submitbtn {
-            text-align: center;
+        .md-form input.form-control[type="datetime-local"]~label {
+            transform: translateY(-140%);
+            font-size: .8rem;
         }
     </style>
-
 </head>
 
-<body>
+<body class="grey lighten-3">
 
-    <form action="/addEvent" method="post">
-        <h2 class="text-center">Add Event</h2>
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="far fa-hand-point-right"></i></span>
+
+
+    <!--Main layout-->
+    <main class=" pt-4">
+        <div class="container wow fadeIn">
+
+            <!-- Heading -->
+            <h2 class="my-5 h2 text-center">Add Event</h2>
+
+            <!--Grid row-->
+            <div class="row d-flex justify-content-center">
+
+                <!--Grid column-->
+                <div class="col-md-8  mb-4">
+
+                    <!--Card-->
+                    <div class="card">
+
+                        <!--Card content-->
+                        <form class="card-body">
+                            <!--Username-->
+                            <div class="md-form input-group pl-0 mb-5">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="basic-addon1">Title</span>
+                                </div>
+                                <input type="text" class="form-control py-0" placeholder="Title for the event"
+                                    id="title" name="title" aria-describedby="basic-addon1">
+                            </div>
+
+                            <!--Date-->
+                            <div class="md-form ">
+                                <input type="datetime-local" id=" inputMDEx" class="form-control">
+                                <label for="inputMDEx">Choose your date</label>
+                            </div>
+
+
+
+                            <!--Grid row-->
+                            <div class="row">
+
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+
+                                    <!--firstName-->
+                                    <div class="md-form ">
+                                        <input type="text" id="from" class="form-control">
+                                        <label for="from" class="">From</label>
+                                    </div>
+
+                                </div>
+                                <!--Grid column-->
+
+                                <!--Grid column-->
+                                <div class="col-md-6 mb-2">
+
+                                    <!--lastName-->
+                                    <div class="md-form">
+                                        <input type="text" id="to" class="form-control">
+                                        <label for="to" class="">To</label>
+                                    </div>
+
+                                </div>
+                                <!--Grid column-->
+
+                            </div>
+                            <!--Grid row-->
+
+
+
+
+
+                            <!--address-->
+                            <div class="md-form mb-5">
+                                <input type="text" id="venue" class="form-control" placeholder="1234 Main St">
+                                <label for="venue" class="">Venue</label>
+                            </div>
+
+                            <!--address-2-->
+                            <div class="md-form mb-5">
+                                <input type="text" id="google map link" class="form-control"
+                                    placeholder="https://maps.google.com/maps?q=Kolkata&t=&z=13&ie=UTF8&iwloc=&output=embed">
+                                <label for="google-map-link" class="">Google map link </label>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="cover-pic" class="form-control" placeholder="">
+                                <label for="cover-pic" class="">Cover picture (1321 * 583)</label>
+                            </div>
+
+                            <div class="md-form mb-5">
+                                <input type="text" id="main-pic" class="form-control" placeholder="">
+                                <label for="main-pic" class="">Main event pic (960 * 820)</label>
+                            </div>
+
+
+
+
+                            <button class="btn btn-primary btn-lg btn-block" type="submit">Add</button>
+
+                        </form>
+
+                    </div>
+                    <!--/.Card-->
+
                 </div>
-                <input type="text" class="form-control" id="title" name="title" placeholder="Title">
-            </div>
-        </div>
+                <!--Grid column-->
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="dateicon"><i class="far fa-calendar-alt"></i></span>
-                </div>
-                <input class="form-control" id="date" name="date" placeholder="MM/DD/YYYY" type="text" />
+
 
             </div>
+            <!--Grid row-->
+
         </div>
+    </main>
+    <!--Main layout-->
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="far fa-hand-point-right"></i></span>
-                </div>
-                <input type="text" class="form-control" id="from" name="from" placeholder="From (10:30 am)">
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="far fa-hand-point-right"></i></span>
-                </div>
-                <input type="text" class="form-control" id="to" name="to" placeholder="To (04:00 pm)">
-            </div>
-        </div>
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-map-marker-alt"></i></span>
-                </div>
-                <input type="text" class="form-control" id="venue" name="venue" placeholder="Venue">
-            </div>
-        </div>
+    <!-- SCRIPTS -->
+    <!-- JQuery -->
+    <script type="text/javascript" src="js/jquery-3.3.1.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="js/popper.min.js"></script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="js/mdb.min.js"></script>
+    <!-- Initializations -->
+    <script type="text/javascript">
+        // Animations initialization
+        new WOW().init();
 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="far fa-image"></i></span>
-                </div>
-                <input type="text" class="form-control" id="image" name="image" placeholder="Image url">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <textarea class="form-control" id="description" name="description" rows="3" placeholder="Description"></textarea>
-        </div>
-<!-- 
-        <div class="form-group">
-            <div class="input-group">
-                <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1"><i class="far fa-image"></i></span>
-                </div>
-                <label for="exampleFormControlFile1">Image</label>
-                <input type="file" class="form-control-file" id="image" name="image" placeholder="Image">
-            </div>
-        </div> -->
-        <div class="submitbtn">
-            <button class="btn btn-success" type="submit">Submit</button>
-        </div>
-
-    </form>
-
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-
-    <script src="/js/jquery.datetimepicker.full.min.js"></script>
-    <script>
-        $('#date').datetimepicker({
-            timepicker: false,
-            format: "Y-m-d"
-        });
     </script>
 </body>
 
